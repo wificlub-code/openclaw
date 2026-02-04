@@ -1,5 +1,7 @@
 FROM registry.cn-beijing.aliyuncs.com/wificlub-public/openclaw:latest
 
+USER root
+
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     bash \
@@ -17,3 +19,5 @@ RUN apt-get update \
     x11vnc \
     xvfb \
   && rm -rf /var/lib/apt/lists/*
+
+  USER node
